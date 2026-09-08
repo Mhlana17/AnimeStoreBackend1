@@ -1,4 +1,4 @@
-package ac.za.cput.ControllerTest;
+package za.ac.cput.ControllerTest;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-@Transactional // rolls back DB changes after each test method
+@Transactional
 class ShoppingCartControllerTest {
 
     @Autowired

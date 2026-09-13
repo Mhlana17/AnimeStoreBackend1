@@ -1,14 +1,17 @@
 package za.ac.cput.service;
-//Vumbhoni Clifford Mnisi
-//222929456
-//Group 3G
-public interface IService<T,ID>{
-    T create(T t);
 
-    T read(ID id);
+import java.util.List;
+import java.util.Optional;
 
-    T update(T t);
+public interface IService<C, S> {
 
-    boolean delete(ID id);
+    C create(C c);
 
+    Optional<C> read(S id);
+
+    C update(C c);
+
+    boolean delete(S id);
+
+    List<C> getAll();
 }

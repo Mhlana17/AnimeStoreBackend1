@@ -4,6 +4,7 @@ package za.ac.cput.service;
 //Group 3G
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import za.ac.cput.domain.Order;
 import za.ac.cput.domain.OrderItem;
 import za.ac.cput.repository.IOrderItemRepository;
 
@@ -22,7 +23,7 @@ public class OrderItemService implements IOrderItemService {
     }
 
     @Override
-    public OrderItem read(String orderItemId) {
+    public Order read(String orderItemId) {
         OrderItem item = (OrderItem) repository.findByOrderItemId(orderItemId);
 
         if (item == null) {

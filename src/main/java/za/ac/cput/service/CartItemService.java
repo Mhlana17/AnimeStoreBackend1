@@ -2,10 +2,10 @@ package za.ac.cput.service;
 
 import org.springframework.stereotype.Service;
 import za.ac.cput.domain.CartItem;
+import za.ac.cput.domain.Order;
 import za.ac.cput.repository.ICartItemRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class CartItemService implements ICartItemService {
@@ -22,7 +22,7 @@ public class CartItemService implements ICartItemService {
     }
 
     @Override
-    public Optional<CartItem> read(String id) {
+    public Order read(String id) {
         return repository.findById(id);
     }
 

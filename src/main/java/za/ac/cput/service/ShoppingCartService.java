@@ -2,10 +2,10 @@ package za.ac.cput.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import za.ac.cput.domain.Order;
 import za.ac.cput.domain.ShoppingCart;
 import za.ac.cput.repository.IShoppingCartRepository;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ShoppingCartService implements IShoppingCartService {
@@ -20,7 +20,7 @@ public class ShoppingCartService implements IShoppingCartService {
     }
 
     @Override
-    public Optional<ShoppingCart> read(String id) {
+    public Order read(String id) {
         return repository.findById(id);
     }
 

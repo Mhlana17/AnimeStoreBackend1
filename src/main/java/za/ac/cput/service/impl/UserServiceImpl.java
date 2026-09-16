@@ -4,6 +4,7 @@ package za.ac.cput.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import za.ac.cput.domain.Order;
 import za.ac.cput.domain.User;
 import za.ac.cput.repository.UserRepository;
 import za.ac.cput.service.IUserService;
@@ -42,7 +43,7 @@ public class UserServiceImpl implements IUserService {
 
 
     @Override
-    public Optional<User> read(String id) {
+    public Order read(String id) {
         if (id == null || id.isEmpty()) {
             return Optional.empty();
         }

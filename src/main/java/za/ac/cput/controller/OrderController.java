@@ -39,13 +39,11 @@ public class OrderController {
     // READ - GET by ID
     @GetMapping("/{orderId}")
     public ResponseEntity<Order> getOrderById(@PathVariable("orderId") String orderId) {
-        Order order = orderService.read(orderId);
-        if (order != null) {
-            return new ResponseEntity<>(order, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+        return orderService.read(orderId)
+                .map(order -> new ResponseEntity<>(order, HttpStatus.OK))
+                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
+
 
     // UPDATE - PUT
     @PutMapping("/update")

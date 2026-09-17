@@ -8,7 +8,6 @@ import za.ac.cput.domain.Order;
 import za.ac.cput.repository.IOrderRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class OrderService implements IOrderService {
@@ -23,8 +22,7 @@ public class OrderService implements IOrderService {
 
     @Override
     public Order read(String id) {
-        Optional<Order> order = repository.findById(id);
-        return order.orElse(null);
+        return repository.findById(id);
     }
 
     @Override
@@ -42,6 +40,11 @@ public class OrderService implements IOrderService {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public List<Order> getAll() {
+        return repository.findAll();
     }
 
     @Override

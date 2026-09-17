@@ -17,7 +17,7 @@ public record UserRequest(
         String email,
 
         @NotBlank(message = "Role is required")
-        @Pattern(regexp = "(?i)ADMIN|CUSTOMER", message = "Role must be ADMIN or CUSTOMER")
+        @Pattern(regexp = "(?i)USER|ADMIN", message = "Role must be USER or ADMIN")
         String role
 ) {
 }

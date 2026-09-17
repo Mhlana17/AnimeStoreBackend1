@@ -4,7 +4,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import za.ac.cput.domain.CartItem;
 import za.ac.cput.factory.CartItemFactory;
-import za.ac.cput.repository.CartItemRepository;
 
 import java.util.List;
 import java.util.Optional;

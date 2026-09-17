@@ -20,6 +20,9 @@ public class Helper {
             return true;
         }
         return false;
+
+    }public static boolean isValidPassword(String password) {
+        return password != null && password.length() >= 8;
     }
     public static boolean isValidId(Long id) {
 
@@ -30,10 +33,8 @@ public class Helper {
     }
 
     public static boolean isValidRole(String role) {
-        if (isNullOrEmpty(role)) {
-            return false;
-        }
-        return role.equalsIgnoreCase("Admin") || role.equalsIgnoreCase("Customer");
+        if (isNullOrEmpty(role)) return false;
+        return role.equalsIgnoreCase("USER") || role.equalsIgnoreCase("ADMIN");
     }
 
 }//end of Helper class

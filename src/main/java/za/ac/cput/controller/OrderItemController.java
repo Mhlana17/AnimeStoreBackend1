@@ -33,12 +33,12 @@ public class OrderItemController {
 
     // READ by ID
     @GetMapping("/{orderitemId}")
-    public ResponseEntity<OrderItem> getOrderItemById(@PathVariable("orderitemId") String id) {
-        OrderItem item = orderItemService.read(id);
-        if (item != null) {
-            return new ResponseEntity<>(item, HttpStatus.OK);
-        }
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    public ResponseEntity<OrderItem> getOrderItemById(
+            @PathVariable("orderitemId") String id) {
+
+        return orderItemService.read(id)
+                .map(item -> new ResponseEntity<>(item, HttpStatus.OK))
+                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     // UPDATE

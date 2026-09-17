@@ -5,7 +5,7 @@ import za.ac.cput.util.Helper;
 
 public class UserFactory {
 
-    private static final String DEFAULT_ROLE = "Customer";
+    private static final String DEFAULT_ROLE = "USER";
 
     public static User createUser(String userId, String userName, String email, String password){
         return createUser(userId, userName, email, password, DEFAULT_ROLE);

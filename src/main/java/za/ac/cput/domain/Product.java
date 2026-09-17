@@ -6,8 +6,7 @@ Author: Sisonke Mhlana(221805486)
 */
 
 import jakarta.persistence.*;
-import jdk.jfr.Category;
-
+import za.ac.cput.domain.Category;
 import java.util.Objects;
 
 @Entity

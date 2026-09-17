@@ -2,14 +2,14 @@ package za.ac.cput.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import za.ac.cput.domain.Order;
 import za.ac.cput.domain.ShoppingCart;
 import za.ac.cput.repository.IShoppingCartRepository;
+
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ShoppingCartService implements IShoppingCartService {
-
 
     @Autowired
     private IShoppingCartRepository repository;
@@ -20,13 +20,15 @@ public class ShoppingCartService implements IShoppingCartService {
     }
 
     @Override
-    public Order read(String id) {
+    public Optional<ShoppingCart> read(String id) {
         return repository.findById(id);
     }
 
     @Override
     public ShoppingCart update(ShoppingCart shoppingCart) {
-        if (shoppingCart == null || shoppingCart.getCartId() == null) {
+
+        if (shoppingCart == null ||
+                shoppingCart.getCartId() == null) {
             return null;
         }
 
@@ -39,17 +41,23 @@ public class ShoppingCartService implements IShoppingCartService {
 
     @Override
     public boolean delete(String id) {
-        return repository.existsById(id);
+
+        if (repository.existsById(id)) {
+            repository.deleteById(id);
+            return true;
+        }
+
+        return false;
     }
 
     @Override
-    public ShoppingCart save(ShoppingCart shoppingcart) {
-        return null;
+    public ShoppingCart save(ShoppingCart shoppingCart) {
+        return repository.save(shoppingCart);
     }
 
     @Override
     public ShoppingCart findById(String id) {
-        return null;
+        return repository.findById(id).orElse(null);
     }
 
     @Override
@@ -59,6 +67,7 @@ public class ShoppingCartService implements IShoppingCartService {
 
     @Override
     public List<ShoppingCart> getShoppingCartsByUserId(String userId) {
+
         return repository.findAll().stream()
                 .filter(cart -> cart.getUserId().equals(userId))
                 .toList();
@@ -66,6 +75,7 @@ public class ShoppingCartService implements IShoppingCartService {
 
     @Override
     public List<ShoppingCart> getShoppingCartsByStatus(String status) {
+
         return repository.findAll().stream()
                 .filter(cart -> cart.getStatus().equals(status))
                 .toList();

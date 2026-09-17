@@ -43,10 +43,12 @@ public class UserServiceImpl implements IUserService {
 
 
     @Override
-    public Order read(String id) {
+    public Optional<User> read(String id) {
+
         if (id == null || id.isEmpty()) {
             return Optional.empty();
         }
+
         return userRepository.findById(id);
     }
 

@@ -1,13 +1,16 @@
 package za.ac.cput.service;
-//Vumbhoni Clifford Mnisi
-//222929456
-//Group 3G
+
+// Vumbhoni Clifford Mnisi
+// 222929456
+// Group 3G
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.domain.Order;
 import za.ac.cput.repository.IOrderRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class OrderService implements IOrderService {
@@ -21,7 +24,7 @@ public class OrderService implements IOrderService {
     }
 
     @Override
-    public Order read(String id) {
+    public Optional<Order> read(String id) {
         return repository.findById(id);
     }
 

@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/inventory")
-//@CrossOrigin(origins = "http://localhost:5173") // ADD THIS LINE (or keep your existing one if you prefer)
+//@CrossOrigin(origins = "http://localhost:5173")
 public class InventoryController {
     @Autowired
     private InventoryService inventoryService;

@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.*;
 import za.ac.cput.domain.Customer;
 import za.ac.cput.domain.User;
 import za.ac.cput.repository.UserRepository;
-
 import java.util.HashMap;
 import java.util.Map;
 

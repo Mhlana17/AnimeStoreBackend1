@@ -1,8 +1,4 @@
 package za.ac.cput.factory;
-/*Deliveryfactory.java
-Author : N Mshweshwe
-date: 17 may 2025
-*/
 
 
 import za.ac.cput.domain.Delivery;

@@ -1,6 +1,3 @@
-//Inventory POJO class
-//Author :S Mzaza(220030898)
-//Date: 11 May 2025
 package za.ac.cput.domain;
 
 import jakarta.persistence.*;
